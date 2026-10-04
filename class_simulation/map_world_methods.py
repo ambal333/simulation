@@ -2,14 +2,14 @@ from typing import Tuple
 
 class Map:
     def __init__(self, width: int, height: int):
-        self.width = width
-        self.height = height
+        self.width = width #ширина
+        self.height = height #высота
         self.entities = {}
 
-    def add_entity(self, position: Tuple[int, int], entity: 'Entity'):
-        cell = self.is_empty(position)
-        if cell and self.is_within_bounds(position):
-            self.entities[position] = entity # обьект класса Entity
+    def add_entity(self, entity: 'Entity'):
+        cell = self.is_empty(entity.position)
+        if cell and self.is_within_bounds(entity.position):
+            self.entities[entity.position] = entity # обьект класса Entity
             return True
         return False
 

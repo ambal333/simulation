@@ -14,21 +14,21 @@ class Grass(Entity):
         self.nutritional_value = nutritional_value
 
     def get_symbol(self):
-        return '*'
+        return '🌿'
 
 class Rock(Entity):
     def __init__(self, position: Tuple[int, int]):
         super().__init__(position)
 
     def get_symbol(self):
-        return '#'
+        return '🪨'
 
 class Tree(Entity):
     def __init__(self, position: Tuple[int, int]):
         super().__init__(position)
 
     def get_symbol(self):
-        return '&'
+        return '🌳'
 
 class Creature(Entity):
     def __init__(self, position: Tuple[int, int], speed: int, hp: int):
@@ -63,15 +63,7 @@ class Predator(Creature):
 
 
 
-class Simulation:
-    def next_turn(self):
-        pass
 
-    def start_simulation(self):
-        pass
-
-    def pause_simulation(self):
-        pass
 
 
 class Action:
