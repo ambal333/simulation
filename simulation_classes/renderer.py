@@ -1,5 +1,4 @@
-from class_work import Grass, Rock
-from map_world_methods import Map
+from simulation_classes.game_map import Map
 class Renderer:
     def __init__(self,game_map: 'Map'):
         self.map= game_map
@@ -16,11 +15,11 @@ class Renderer:
                     line += f'-\t'
             print(line)
 
-grass = Grass((0,0))
-rock = Rock((2,3))
-map_1 = Map(10,10)
-map_1.add_entity(grass)
-map_1.add_entity(rock)
-render = Renderer(map_1)
-render.visual_map()
+# grass = Grass((0,0))
+# rock = Rock((2,3))
+# map_1 = Map(10,10)
+# map_1.add_entity(grass)
+# map_1.add_entity(rock)
+# render = Renderer(map_1)
+# render.visual_map()
 
