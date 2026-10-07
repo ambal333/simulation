@@ -1,3 +1,4 @@
+from simulation_classes.creature import Creature,Herbivore,Predator
 from simulation_classes.renderer import Renderer
 from simulation_classes.game_map import Map
 class Simulation:
@@ -11,6 +12,7 @@ class Simulation:
     def next_turn(self):
         self.moves += 1
         print(f'Ход номер {self.moves}')
+        self.move_all_entities()
         for i in self.turn_actions:
             i.execute(self.map)
         self.renderer.visual_map()
@@ -22,7 +24,11 @@ class Simulation:
         while True:
             self.next_turn()
             input('Нажмите Enter для продолжения')
-
+    def move_all_entities(self):
+        entities = list(self.map.entities.values())
+        for i in entities:
+            if isinstance(i, Herbivore):
+                i.make_move(self.map)
     def pause_simulation(self):
         pass
 
