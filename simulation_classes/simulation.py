@@ -29,6 +29,9 @@ class Simulation:
         for i in entities:
             if isinstance(i, Herbivore):
                 i.make_move(self.map)
+        for i in entities:
+            if isinstance(i, Predator):
+                i.make_move(self.map)
     def pause_simulation(self):
         pass
 

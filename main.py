@@ -9,7 +9,7 @@ def main():
     map_1 = Map(10, 9)
     renderer = Renderer(map_1)
     init_action = [SpawnRock(), SpawnRock(), SpawnRock(), SpawnRock(), SpawnRock(),
-                   SpawnPredator(2,100,20), SpawnHerbivore(1,100), SpawnTree(), SpawnGrass()]
+                   SpawnPredator(3,100,20), SpawnHerbivore(2,90), SpawnTree(), SpawnGrass(), SpawnGrass(), SpawnGrass()]
     turn_action = []
     first_simulation = Simulation(map_1, init_action, turn_action, renderer)
     first_simulation.start_simulation()
@@ -17,5 +17,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
 
 
