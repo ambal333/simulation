@@ -1,19 +1,20 @@
 from typing import Tuple
 
+
 class Map:
     def __init__(self, width: int, height: int):
-        self.width = width #ширина
-        self.height = height #высота
+        self.width = width  # ширина
+        self.height = height  # высота
         self.entities = {}
 
-    def add_entity(self, entity: 'Entity'):
+    def add_entity(self, entity: "Entity"):
         cell = self.is_empty(entity.position)
         if cell and self.is_within_bounds(entity.position):
-            self.entities[entity.position] = entity # обьект класса Entity
+            self.entities[entity.position] = entity  # обьект класса Entity
             return True
         return False
 
-    def move_entity(self, entity: 'Entity', new_position: Tuple[int, int]):
+    def move_entity(self, entity: "Entity", new_position: Tuple[int, int]):
         old_position = entity.position
         if not self.is_within_bounds(new_position) or not self.is_empty(new_position):
             return False
@@ -39,3 +40,13 @@ class Map:
 
     def is_empty(self, position: Tuple[int, int]):
         return self.entities.get(position) is None
+
+    def count_entity(self, entity: "Entity"):
+        count = 0
+        for i in self.entities.values():
+            if isinstance(i, entity.__class__):
+                count += 1
+            else:
+                continue
+
+        return count

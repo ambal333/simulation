@@ -1,19 +1,22 @@
-from simulation_classes.game_map import Map
+from simulation_classes.elements.game_map import Map
+
+
 class Renderer:
-    def __init__(self,game_map: 'Map'):
-        self.map= game_map
+    def __init__(self, game_map: "Map"):
+        self.map = game_map
 
     def visual_map(self):
         for i in range(self.map.height):
-            line = ''
+            line = ""
             for j in range(self.map.width):
-                entity =  self.map.get_entity((j, i))
+                entity = self.map.get_entity((j, i))
                 if entity is not None:
                     symbol = entity.get_symbol()
-                    line += f'{symbol}\t'
+                    line += f"{symbol}\t"
                 else:
-                    line += f'-\t'
+                    line += f"-\t"
             print(line)
+
 
 # grass = Grass((0,0))
 # rock = Rock((2,3))
@@ -22,4 +25,3 @@ class Renderer:
 # map_1.add_entity(rock)
 # render = Renderer(map_1)
 # render.visual_map()
-
