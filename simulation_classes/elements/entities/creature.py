@@ -1,7 +1,7 @@
 from typing import Tuple
-from simulation_classes.elements.entity import Entity
+from simulation_classes.elements.entities.entity import Entity
 from abc import abstractmethod
-from simulation_classes.elements.game_map import Map
+from simulation_classes.elements.map_and_render.game_map import Map
 
 
 class Creature(Entity):

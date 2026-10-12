@@ -1,7 +1,7 @@
-from simulation_classes.elements.creatures.herbivore import Herbivore
-from simulation_classes.elements.creatures.predator import Predator
-from simulation_classes.elements.renderer import Renderer
-from simulation_classes.elements.game_map import Map
+from simulation_classes.elements.entities.dynamic_obj.herbivore import Herbivore
+from simulation_classes.elements.entities.dynamic_obj.predator import Predator
+from simulation_classes.elements.map_and_render.renderer import Renderer
+from simulation_classes.elements.map_and_render.game_map import Map
 
 
 class Simulation:

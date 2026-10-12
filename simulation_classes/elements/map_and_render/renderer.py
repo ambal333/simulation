@@ -1,4 +1,4 @@
-from simulation_classes.elements.game_map import Map
+from simulation_classes.elements.map_and_render.game_map import Map
 
 
 class Renderer:

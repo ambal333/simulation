@@ -1,7 +1,7 @@
 from simulation_classes.elements.bfs import bfs_find_path
-from simulation_classes.elements.creatures.creature import Creature
+from simulation_classes.elements.entities.creature import Creature
 from typing import Tuple
-from simulation_classes.elements.entity import Grass
+from simulation_classes.elements.entities.static_obj.grass_obj import Grass
 
 
 class Herbivore(Creature):

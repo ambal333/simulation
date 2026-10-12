@@ -1,13 +1,13 @@
-from simulation_classes.actions.action import (
-    SpawnRock,
-    SpawnGrass,
-    SpawnTree,
+from simulation_classes.actions.generate_actions.generate_rock import SpawnRock
+from simulation_classes.actions.generate_actions.generate_grass import SpawnGrass
+from simulation_classes.actions.generate_actions.generate_tree import SpawnTree
+from simulation_classes.actions.generate_actions.generate_herbivore import (
     SpawnHerbivore,
-    SpawnPredator,
 )
+from simulation_classes.actions.generate_actions.generate_predator import SpawnPredator
 from simulation_classes.elements.simulation import Simulation
-from simulation_classes.elements.game_map import Map
-from simulation_classes.elements.renderer import Renderer
+from simulation_classes.elements.map_and_render.game_map import Map
+from simulation_classes.elements.map_and_render.renderer import Renderer
 
 
 def main():

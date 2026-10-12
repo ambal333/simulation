@@ -1,7 +1,7 @@
 from simulation_classes.elements.bfs import bfs_find_path
-from simulation_classes.elements.creatures.creature import Creature
+from simulation_classes.elements.entities.creature import Creature
 from typing import Tuple
-from simulation_classes.elements.creatures.herbivore import Herbivore
+from simulation_classes.elements.entities.dynamic_obj.herbivore import Herbivore
 
 
 class Predator(Creature):
