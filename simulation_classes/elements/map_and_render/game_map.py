@@ -5,12 +5,12 @@ class Map:
     def __init__(self, width: int, height: int):
         self.width = width  # ширина
         self.height = height  # высота
-        self.entities = {}
+        self.__entities = {}
 
     def add_entity(self, entity: "Entity"):
         cell = self.is_empty(entity.position)
         if cell and self.is_within_bounds(entity.position):
-            self.entities[entity.position] = entity  # обьект класса Entity
+            self.__entities[entity.position] = entity  # обьект класса Entity
             return True
         return False
 
@@ -20,11 +20,11 @@ class Map:
             return False
         self.remove_entity(old_position)
         entity.position = new_position
-        self.entities[new_position] = entity
+        self.__entities[new_position] = entity
         return True
 
     def get_entity(self, position: Tuple[int, int]):
-        return self.entities.get(position)
+        return self.__entities.get(position)
 
     def is_within_bounds(self, position: Tuple[int, int]):
         x, y = position
@@ -33,20 +33,24 @@ class Map:
     def remove_entity(self, position: Tuple[int, int]):
         pos = self.is_empty(position)
         if not pos:
-            del self.entities[position]
+            del self.__entities[position]
             return True
         else:
             return False
 
     def is_empty(self, position: Tuple[int, int]):
-        return self.entities.get(position) is None
+        return self.__entities.get(position) is None
 
     def count_entity(self, entity: "Entity"):
         count = 0
-        for i in self.entities.values():
+        for i in self.__entities.values():
             if isinstance(i, entity.__class__):
                 count += 1
             else:
                 continue
 
         return count
+
+    def get_full_entities(self):
+        all_entities = self.__entities.copy()
+        return all_entities

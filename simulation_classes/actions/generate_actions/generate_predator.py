@@ -8,5 +8,5 @@ class SpawnPredator(SpawnAction):
         self.speed = speed
         self.attack_power = attack_power
 
-    def create_entity(self, position):
+    def get_entity(self, position):
         return Predator(position, self.speed, self.hp, self.attack_power)

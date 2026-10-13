@@ -44,7 +44,7 @@ class Simulation:
             input("нажмите Enter для продолжения")
 
     def move_all_entities(self):
-        entities = list(self.map.entities.values())
+        entities = list(self.map.get_full_entities().values())
         for i in entities:
             if isinstance(i, Herbivore):
                 i.make_move(self.map)

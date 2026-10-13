@@ -41,9 +41,10 @@ class Predator(Creature):
         prey = game_map.get_entity(target_pos)
         if prey:
             prey.hp -= self.attack_power
-            print(
-                f"Хищник атаковал травоядное в {target_pos}! У жертвы осталось {prey.hp} HP"
-            )
+            if prey.hp > 0:
+                print(
+                    f"Хищник атаковал травоядное в {target_pos}! У жертвы осталось {prey.hp} HP"
+                )
             if prey.hp <= 0:
                 print("Травоядное погибло!")
                 game_map.remove_entity(target_pos)

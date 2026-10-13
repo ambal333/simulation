@@ -7,5 +7,5 @@ class SpawnHerbivore(SpawnAction):
         self.speed = speed
         self.hp = hp
 
-    def create_entity(self, position):
+    def get_entity(self, position):
         return Herbivore(position, self.speed, self.hp)

@@ -1,11 +1,13 @@
 from abc import ABC, abstractmethod
 import random
 from simulation_classes.actions.action import Action
+from simulation_classes.elements.entities.dynamic_obj.herbivore import Herbivore
+from simulation_classes.elements.entities.dynamic_obj.predator import Predator
 
 
 class SpawnAction(Action):
     @abstractmethod
-    def create_entity(self, position):
+    def get_entity(self, position):
         pass
 
     def execute(self, game_map: "Map") -> None:
@@ -14,9 +16,15 @@ class SpawnAction(Action):
         while True:
             spawn_position = (random.choice(x), random.choice(y))
             if game_map.is_empty(spawn_position):
-                entity = self.create_entity(spawn_position)
-                if game_map.count_entity(entity) < 7:
+                entity = self.get_entity(spawn_position)
+                if isinstance(entity,(Herbivore, Predator)):
+                    if game_map.count_entity(entity) < 10:
+                        game_map.add_entity(entity)
+                        break
+                    else:
+                        break
+                else:
                     game_map.add_entity(entity)
                     break
-                else:
-                    break
+            else:
+                break
