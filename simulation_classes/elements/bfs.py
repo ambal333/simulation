@@ -4,8 +4,7 @@ from typing import Tuple
 
 
 def bfs_find_path(
-    game_map: "Map", start_position: Tuple[int, int], target_position: Tuple[int, int]
-):
+    game_map: "Map", start_position: Tuple[int, int], target_position: Tuple[int, int]):
     queue = deque([start_position])
     visited = {start_position}
     came_from = {start_position: None}
@@ -31,5 +30,4 @@ def bfs_find_path(
                         queue.append(neighbor_position)
                         visited.add(neighbor_position)
                         came_from[neighbor_position] = current_position
-
     return []

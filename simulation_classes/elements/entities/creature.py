@@ -17,12 +17,9 @@ class Creature(Entity):
     def _find_entity(self, game_map: "Map", grade):
         closest_grass_pos = None
         min_distance = float("inf")
-        # Перебираем все объекты на карте
         for pos, entity in game_map.get_full_entities().items():
             if isinstance(entity, grade):
-                distance = abs(self.position[0] - pos[0]) + abs(
-                    self.position[1] - pos[1]
-                )
+                distance = abs(self.position[0] - pos[0]) + abs(self.position[1] - pos[1])
                 if distance < min_distance:
                     min_distance = distance
                     closest_grass_pos = pos

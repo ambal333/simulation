@@ -10,11 +10,9 @@ class Predator(Creature):
         self.attack_power = attack_power
 
     def make_move(self, game_map: "Map") -> None:
-        # 1. Проверяем, рядом ли жертва
         target_position = self._find_entity(game_map, Herbivore)
         if target_position is None:
             return
-        # 2. Если жертва в соседней клетке — атакуем
         if self._is_adjacent(target_position):
             self._attack(game_map, target_position)
             return
@@ -22,7 +20,6 @@ class Predator(Creature):
         path = bfs_find_path(game_map, self.position, target_position)
         if not path or len(path) <= 1:
             return
-        # 4. Делаем до self.speed шагов
         steps_made = 0
         for i in range(1, len(path)):
             if steps_made >= self.speed:
@@ -30,7 +27,6 @@ class Predator(Creature):
             next_step = path[i]
             if game_map.move_entity(self, next_step):
                 steps_made += 1
-                # Проверяем, не дошли ли до жертвы
                 if self.position == target_position:
                     self._attack(game_map, target_position)
                     break

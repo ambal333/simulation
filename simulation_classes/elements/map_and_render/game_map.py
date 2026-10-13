@@ -48,7 +48,6 @@ class Map:
                 count += 1
             else:
                 continue
-
         return count
 
     def get_full_entities(self):

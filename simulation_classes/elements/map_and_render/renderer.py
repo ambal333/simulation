@@ -16,12 +16,3 @@ class Renderer:
                 else:
                     line += f"-\t"
             print(line)
-
-
-# grass = Grass((0,0))
-# rock = Rock((2,3))
-# map_1 = Map(10,10)
-# map_1.add_entity(grass)
-# map_1.add_entity(rock)
-# render = Renderer(map_1)
-# render.visual_map()
